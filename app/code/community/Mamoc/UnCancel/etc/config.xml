@@ -26,37 +26,29 @@
 			</mmc_uncancel>
 		</models>
 
+		<events>
+	      <adminhtml_widget_container_html_before>
+	        <observers>
+	          <mmc_addbutton_uncancel>
+	            <type>model</type>
+	            <class>mmc_uncancel/observer</class>
+	            <method>addbutton</method>
+	          </mmc_addbutton_uncancel>
+	        </observers>
+	      </adminhtml_widget_container_html_before>
+
 	</global>
-	
-	<frontend>
-		<layout>
-			<updates>
-				<mmc_uncancel>
-					<file>mamoc/[modulecode].xml</file>
-				</mmc_uncancel>
-			</updates>
-		</layout>
-	</frontend>
 
 	<admin>
-		<translate>
-			<modules>
-				<mmc_uncancel>
-					<files>
-                        			<default>Mamoc_UnCancel.csv</default>
-                    			</files>
-				</mmc_uncancel>
-			</modules>
-		</translate>
 		<routers>
 			<adminhtml>
 				<args>
 					<modules>
 						<mmc_uncancel after="Mage_Adminhtml">Mamoc_UnCancel</mmc_uncancel>
 					</modules>
-	              		</args>
-         		</adminhtml>
-        	</routers>
+	            </args>
+         	</adminhtml>
+        </routers>
 	</admin>
 
 </config>
