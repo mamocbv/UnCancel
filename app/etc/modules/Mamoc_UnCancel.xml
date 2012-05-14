@@ -2,11 +2,8 @@
 <config>
     <modules>
         <Mamoc_UnCancel>
-		<active>true</active>
-		<codePool>community</codePool>
-		<depends>
-            		<Mamoc_Core />
-        	</depends>
-	</Mamoc_UnCancel> 
+			<active>true</active>
+			<codePool>community</codePool>
+		</Mamoc_UnCancel>
     </modules>
 </config>
