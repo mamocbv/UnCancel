@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Mamoc_UnCancel>
+			<version>1.0.0</version>
+		</Mamoc_UnCancel>
+	</modules>
+
+	<global>
+
+		<blocks>
+			<mmc_uncancel>
+				<class>Mamoc_UnCancel_Block</class>
+			</mmc_uncancel>
+		</blocks>
+
+		<helpers>
+			<mmc_uncancel>
+				<class>Mamoc_UnCancel_Helper</class>
+			</mmc_uncancel>
+		</helpers>
+
+		<models>
+			<mmc_uncancel>
+				<class>Mamoc_UnCancel_Model</class>
+			</mmc_uncancel>
+		</models>
+
+	</global>
+	
+	<frontend>
+		<layout>
+			<updates>
+				<mmc_uncancel>
+					<file>mamoc/[modulecode].xml</file>
+				</mmc_uncancel>
+			</updates>
+		</layout>
+	</frontend>
+
+	<admin>
+		<translate>
+			<modules>
+				<mmc_uncancel>
+					<files>
+                        			<default>Mamoc_UnCancel.csv</default>
+                    			</files>
+				</mmc_uncancel>
+			</modules>
+		</translate>
+		<routers>
+			<adminhtml>
+				<args>
+					<modules>
+						<mmc_uncancel after="Mage_Adminhtml">Mamoc_UnCancel</mmc_uncancel>
+					</modules>
+	              		</args>
+         		</adminhtml>
+        	</routers>
+	</admin>
+
+</config>
