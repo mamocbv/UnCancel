@@ -36,6 +36,7 @@
 	          </mmc_addbutton_uncancel>
 	        </observers>
 	      </adminhtml_widget_container_html_before>
+		</events>
 
 	</global>
 
@@ -44,7 +45,7 @@
 			<adminhtml>
 				<args>
 					<modules>
-						<mmc_uncancel after="Mage_Adminhtml">Mamoc_UnCancel</mmc_uncancel>
+						<mmc_uncancel before="Mage_Adminhtml">Mamoc_UnCancel</mmc_uncancel>
 					</modules>
 	            </args>
          	</adminhtml>
