@@ -1,7 +1,7 @@
 <?php
 class Mamoc_UnCancel_Model_Uncancel extends Mage_Core_Model_Abstract{
 
-	public function uncancelOrder($orderId){
+	public function uncancelOrder($Id){
 		$order = Mage::getModel('sales/order')->load($Id);
 		if($order->getId()){
 			$order->setData('state','processing')

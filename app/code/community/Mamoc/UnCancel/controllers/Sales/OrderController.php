@@ -5,35 +5,35 @@ class Mamoc_UnCancel_Sales_OrderController extends Mage_Adminhtml_Controller_Act
 
 		if($Id){
 			if(Mage::getSingleton('mmc_uncancel/uncancel')->uncancelOrder($Id)){
-				$this->_getSession()->addSuccess($this->__('Your order has been uncanceled.'));
+				$this->_getSession()->addSuccess($this->__('Order has been uncanceled.'));
 			}else{
-				$this->_getSession()->addError($this->__('Unable to uncancel your order.'));
+				$this->_getSession()->addError($this->__('Unable to uncancel order.'));
 			}
 		}
 		$this->_redirect('*/*/');
 	}
 
-	public function massCancelAction()    {
+	public function massUncancelAction(){
         $orderIds = $this->getRequest()->getPost('order_ids', array());
-        $countCancelOrder = 0;
-        $countNonCancelOrder = 0;
+        $countUnCancelOrder = 0;
+        $countNonUnCancelOrder = 0;
+        $uncancel = Mage::getModel('mmc_uncancel/uncancel');
         foreach ($orderIds as $orderId) {
-            $uncancel = Mage::getModel('mmc_uncancel/uncancel');
             if ($uncancel->uncancelOrder($orderId)) {
-                $countCancelOrder++;
+                $countUnCancelOrder++;
             } else {
-                $countNonCancelOrder++;
+                $countNonUnCancelOrder++;
             }
         }
-        if ($countNonCancelOrder) {
-            if ($countCancelOrder) {
-                $this->_getSession()->addError($this->__('%s order(s) cannot be uncanceled', $countNonCancelOrder));
+        if ($countNonUnCancelOrder) {
+            if ($countUnCancelOrder) {
+                $this->_getSession()->addError($this->__('%s order(s) cannot be uncanceled', $countNonUnCancelOrder));
             } else {
                 $this->_getSession()->addError($this->__('The order(s) cannot be uncanceled'));
             }
         }
-        if ($countCancelOrder) {
-            $this->_getSession()->addSuccess($this->__('%s order(s) have been uncanceled.', $countCancelOrder));
+        if ($countUnCancelOrder) {
+            $this->_getSession()->addSuccess($this->__('%s order(s) have been uncanceled.', $countUnCancelOrder));
         }
         $this->_redirect('*/*/');
     }
