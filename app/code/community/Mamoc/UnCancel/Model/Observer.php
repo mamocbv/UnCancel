@@ -24,7 +24,7 @@ class Mamoc_UnCancel_Model_Observer{
     }
 
 	public function getUncancelUrl(){
-		return Mage::getUrl('adminhtml/sales_order/uncancel',array('id'=>$this->getOrder()->getId()));
+		return Mage::helper("adminhtml")->getUrl('adminhtml/sales_order/uncancel',array('id'=>$this->getOrder()->getId()));
 	}
 }
 ?>
